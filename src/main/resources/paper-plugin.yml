@@ -1,4 +1,4 @@
 name: SuperBoard
 version: '${project.version}'
 main: gg.superboard.SuperBoard
-api-version: 1.16
+api-version: '1.16'

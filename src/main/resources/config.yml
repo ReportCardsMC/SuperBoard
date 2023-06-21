@@ -14,15 +14,18 @@ options:
 
 boards:
   money:
+    # Type of scoreboard (Supports "vault" & "placeholderapi")
+    type: "placeholderapi"
+    # PlaceholderAPI settings
+    placeholderapi:
+      # Placeholder to use for the leaderboard value
+      placeholder: "%balance%"
+      # How often to update the leaderboard value (in seconds, minimum 5)
+      update-interval: 30
     # Title of the scoreboard (Supports Color Codes & MiniMessage)
     title: "&6&lMoney Leaderboard"
     # Lines of the scoreboard (Supports Placeholders from PlaceholderAPI & Certain plugin specific placeholders)
-    # Plugin specific placeholders:
-    #  {title} - Current leaderboard title
-    #  {date} - Date of the leaderboards last refresh
-    #  {rank} - Player's leaderboard position
-    #  {name} - Player's name
-    #  {value} - Player's value
+    # Plugin specific placeholders: https://github.com/ReportCardsMC/SuperBoard/wiki/Placeholders
     lines:
       - "{title} &7- &e{date}"
       - "&7#&e{rank} &7- &e{name} &7- &e${value}"
