@@ -1,0 +1,76 @@
+options:
+  leaderboard-cache:
+    # Refresh cache every X minutes
+    interval: 5
+    # Maximum number of players to cache (-1 for unlimited)
+    max-players: -1
+    # Specific board settings
+    boards:
+      money:
+        # Override the global refresh interval
+        interval: 10
+        # Override the global max players
+        max-players: 100
+
+boards:
+  money:
+    # Title of the scoreboard (Supports Color Codes & MiniMessage)
+    title: "&6&lMoney Leaderboard"
+    # Lines of the scoreboard (Supports Placeholders from PlaceholderAPI & Certain plugin specific placeholders)
+    # Plugin specific placeholders:
+    #  {title} - Current leaderboard title
+    #  {date} - Date of the leaderboards last refresh
+    #  {rank} - Player's leaderboard position
+    #  {name} - Player's name
+    #  {value} - Player's value
+    lines:
+      - "{title} &7- &e{date}"
+      - "&7#&e{rank} &7- &e{name} &7- &e${value}"
+
+database:
+  # DATABASE TYPES: "sqlite", "mysql", "mongodb"
+  type: "sqlite"
+
+  # Database options:
+  options:
+    # Validate database connection (recommended)
+    validate-connection:
+      enabled: true
+      # Validate database connection every X minutes
+      interval: 10
+
+    # Store player data in database (recommended)
+    # This stores the player name and uuid in the database for faster player lookup.
+    # Otherwise, the plugin will have to query Mojang's API every time a player is looked up in the leaderboard.
+    player-data:
+      enabled: true
+
+
+  # For SQLite
+  sqlite:
+    # Path to the SQLite database file
+    path: "/plugins/SuperBoard/database.db"
+    # SQLite database name
+    database: "superboard"
+
+  # For MySQL
+  mysql:
+    # MySQL host
+    host: "localhost"
+    # MySQL port
+    port: 3306
+    # MySQL database name
+    database: "superboard"
+    # MySQL username
+    username: "root"
+    # MySQL password
+    password: "password"
+
+  # For MongoDB
+  mongodb:
+    # MongoDB Connection String
+    connection-string: "mongodb://localhost:27017"
+    # MongoDB database name
+    database: "superboard"
+    # MongoDB collection prefix
+    collection-prefix: "superboard_"
